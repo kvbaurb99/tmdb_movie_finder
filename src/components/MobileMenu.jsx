@@ -11,8 +11,8 @@ export default function MobileMenu({ showMobileMenu, setShowMobileMenu }) {
         <Link href='https://www.themoviedb.org/tv' target='_blank'><li>Seriale</li></Link>
         <div className='flex text-xs flex-wrap justify-center gap-2'>
             {
-                genres.map(genre => (
-                <div className='bg-blue-600 rounded-full px-3 py-2'>
+                genres.map((genre, index) => (
+                <div key={index} className='bg-blue-600 rounded-full px-3 py-2'>
                     {genre.title}
                 </div>
                 ))
