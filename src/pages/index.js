@@ -50,16 +50,6 @@ export default function Home() {
   )
 }
 
-export async function getServerSideProps() {
-  const movies = await getPopularMovies()
-  const tv = await getMostRatedTv()
 
-  return {
-    props: {
-      movies,
-      tv,
-    },
-  }
-}
 
 
