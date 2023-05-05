@@ -32,10 +32,6 @@ export default function Home() {
     })
   }, [])
 
-  console.log(movies)
-
-
-
 
   return (
     <main className={`${inter.className} bg-black w-full mx-auto h-full overflow-x-hidden`}>
@@ -49,7 +45,6 @@ export default function Home() {
     </main>
   )
 }
-
 
 
 

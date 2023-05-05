@@ -18,6 +18,7 @@ export default function NavBar({ showGenres, setShowGenres }) {
                 src={Logo}
                 width={100}
                 alt='logo'
+                priority
             />
             </div>
             <ul className='gap-7 items-center lg:mr-[8rem] xl:mr-0 lg:flex hidden'>
