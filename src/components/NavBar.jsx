@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Logo from '../assets/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -9,9 +9,25 @@ import MobileMenu from './MobileMenu'
 export default function NavBar({ showGenres, setShowGenres }) {
 
     const [ showMobileMenu, setShowMobileMenu ] = useState(false)
+    const [navbarBackground, setNavbarBackground] = useState('transparent');
+
+    useEffect(() => {
+      const handleScroll = () => {
+        const scrollY = window.scrollY;
+        if (scrollY > 200) {
+          setNavbarBackground('rgba(0,0,0,0.8');
+        } else {
+          setNavbarBackground('transparent');
+        }
+      };
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
 
   return (
-    <nav className='w-full h-[100px] absolute z-50'>
+    <nav className={`w-full h-[100px] fixed z-50`} style={{ backgroundColor: navbarBackground, transition: 'background-color 1s ease-in-out' }}>
         <div className='xl:w-[75%] mx-auto h-full flex text-white items-center justify-between'>
             <div className='flex items-center lg:ml-[8rem] xl:ml-0'>
             <Image
