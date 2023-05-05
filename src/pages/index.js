@@ -10,27 +10,12 @@ import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({ movies, tv }) {
 
-  const [movies, setMovies] = useState([])
-  const [tv, setTv] = useState([])
   const [showGenres, setShowGenres] = useState(false)
 
-  // fetch popular movies
-  useEffect(() => {
-    getData()
-    .then(data => {
-      setMovies(data.results)
-    })
-  }, [])
 
-  // fetch most rated tv series
-  useEffect(() => {
-    getTvData()
-    .then(data => {
-      setTv(data.results)
-    })
-  }, [])
+
 
 
   return (
@@ -44,6 +29,24 @@ export default function Home() {
       <Footer />
     </main>
   )
+}
+
+export async function getServerSideProps() {
+
+  const movies = await getData().then(data => {
+    return data.results
+  })
+
+  const tv = await getTvData().then(data => {
+    return data.results
+  })
+
+  return {
+    props: {
+      movies,
+      tv
+    },
+  };
 }
 
 
