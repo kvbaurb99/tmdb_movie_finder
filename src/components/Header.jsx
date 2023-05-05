@@ -41,7 +41,7 @@ export default function Header({ movies, setShowGenres }) {
         <img loading='lazy' alt='header' src={`https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path}`} className='lg:h-screen h-[500px] w-full absolute top-0 rounded object-cover' />
         <div className='relative z-20 w-[80%] mx-auto flex flex-col'>
             <motion.div variants={searchDescriptionVariant} initial='hidden' animate='visible'>
-                <p className='text-white text-left mb-2 text-2xl lg:text-5xl xl:text-7xl font-bold cursor-default'>Miliony filmów i seriali czekają na Ciebie.</p>
+                <p className='text-white text-left mb-3 text-2xl lg:text-5xl xl:text-7xl font-bold cursor-default'>Miliony filmów i seriali czekają na Ciebie.</p>
                 <p className='text-white text-left mb-3 lg:mb-6 text-2xl lg:text-5xl xl:text-7xl font-bold cursor-default'>Odkryj je już dziś!</p>
             </motion.div>
             <motion.div className='relative' variants={searchVariant} initial='hidden' animate='visible'>
